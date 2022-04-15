@@ -18,30 +18,30 @@ using namespace std;
 
 const int Maxn=110;
 const int maxn=20;
-char str[maxn][Maxn];//ÊäÈëÎÄ·¨
-char st[maxn];//ÊäÈë´®
-char stac[maxn];//Ä£ÄâÕ»µÄÊı×é
-char nstr[maxn][maxn];//´¢´æ×ª»¯ÎÄ·¨
+char str[maxn][Maxn];//è¾“å…¥æ–‡æ³•
+char st[maxn];//è¾“å…¥ä¸²
+char stac[maxn];//æ¨¡æ‹Ÿæ ˆçš„æ•°ç»„
+char nstr[maxn][maxn];//å‚¨å­˜è½¬åŒ–æ–‡æ³•
 char mstr[maxn][maxn];
-char fin[maxn];//´æ´¢ÖÕ½á·û
+char fin[maxn];//å­˜å‚¨ç»ˆç»“ç¬¦
 char firstvt[maxn][maxn],lastvt[maxn][maxn];
-char cmp[maxn][maxn];//´æ´¢±íÖĞµÄ±È½Ï·û
-int firstflag[maxn],lastflag[maxn];//·ÇÖÕ½á·ûµÄfirstvt,lastvtÊÇ·ñÇó³ö
-int fcnt[maxn],lcnt[maxn];//·ÇÖÕ½á·ûfirsvtºÍlastvtµÄ¸öÊı
-int is_fin(char c) { //ÅĞ¶ÏÖÕ½á·û
+char cmp[maxn][maxn];//å­˜å‚¨è¡¨ä¸­çš„æ¯”è¾ƒç¬¦
+int firstflag[maxn],lastflag[maxn];//éç»ˆç»“ç¬¦çš„firstvt,lastvtæ˜¯å¦æ±‚å‡º
+int fcnt[maxn],lcnt[maxn];//éç»ˆç»“ç¬¦firsvtå’Œlastvtçš„ä¸ªæ•°
+int is_fin(char c) { //åˆ¤æ–­ç»ˆç»“ç¬¦
     for(int i=0; fin[i]!='\0'; i++) {
         if(fin[i]==c)
             return 1;
     }
     return 0;
 }
-int site(char c) { //ÇóÔÚ±íÖĞµÄÏÂ±ê
+int site(char c) { //æ±‚åœ¨è¡¨ä¸­çš„ä¸‹æ ‡
     for(int i=0; fin[i]!='\0'; i++) {
         if(fin[i]==c)
             return i;
     }
 }
-void get_firstvt(char s,int t) { //Çós·ÇÖÕ½á·ûµÄfirstvtÖµ
+void get_firstvt(char s,int t) { //æ±‚séç»ˆç»“ç¬¦çš„firstvtå€¼
     int i,j,ii,jj,tt;
     for(i=0; i<t; i++) {
         if(str[i][0]==s)
@@ -82,7 +82,7 @@ void get_firstvt(char s,int t) { //Çós·ÇÖÕ½á·ûµÄfirstvtÖµ
     }
 }
 
-void output_firstvt(int T) { //Êä³öfirstvt¼¯
+void output_firstvt(int T) { //è¾“å‡ºfirstvté›†
     for(int i=0; i<T; i++) {
         get_firstvt(str[i][0],T);
     }
@@ -95,7 +95,7 @@ void output_firstvt(int T) { //Êä³öfirstvt¼¯
     }
 }
 
-void get_lastvt(char s,int t) { //Çós·ÇÖÕ½á·ûµÄlastvtÖµ
+void get_lastvt(char s,int t) { //æ±‚séç»ˆç»“ç¬¦çš„lastvtå€¼
     int i,j,ii,jj,tt;
     for(i=0; i<t; i++) {
         if(str[i][0]==s)
@@ -136,7 +136,7 @@ void get_lastvt(char s,int t) { //Çós·ÇÖÕ½á·ûµÄlastvtÖµ
     }
 }
 
-void output_lastvt(int T) { //Êä³ölastvt¼¯
+void output_lastvt(int T) { //è¾“å‡ºlastvté›†
     for(int i=0; i<T; i++) {
         get_lastvt(str[i][0],T);
     }
@@ -157,7 +157,7 @@ int main() {
     int T;
     while(scanf("%d",&T)!=EOF)
     {
-    int cnt=0;//ÖÕ½á·ûµÄ¸öÊı
+    int cnt=0;//ç»ˆç»“ç¬¦çš„ä¸ªæ•°
     memset(firstflag,0,sizeof(firstflag));
     memset(lastflag,0,sizeof(lastflag));
     memset(cmp,0,sizeof(cmp));
